@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>::: 일상속의 NFT :::</title>
+
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style_noto.css">
+    <link rel="stylesheet" href="./css/elnft.css">
+    <link rel="stylesheet" type="text/css" href="./css/tab_menu.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <!-- Main Javascript -->
+    <script type="text/javascript" charset="utf-8" src="./js/swiper-3.2.7.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/jquery-2.1.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+</head>
+
+
+<!--### 전체 레이아웃 시작 : WRAP ###-->
+<body data-spy="scroll" class="cbp-spmenu-push">
+
+<!--### 슬라이더 컨텐츠 시작 : SCONTAINER ###-->
+<div class="wrap">
+	<!--## 헤더 시작 : HEARER ##-->
+	<header id="htop" style="padding:0; height: 50px; ">
+		<div id="header" class="header_wrap" >
+			<!--# 메뉴 : MENU #-->
+			<div class="header" id="pp" >
+				<a href="javascript:history.back();" title="뒤로가기"><div class="back"></div></a>
+				<div class="htit" style="background-color: #292a2f;">결제</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</header>
+	<!--## 헤더 끝 : HEARER ##-->
+
+	<!--## 콘텐츠 시작 : CONTAINER ##-->
+	<div class="mcontainer bg_white">
+		<div class="gtc_wrap " style="margin:0 0 0 !important;">
+			<div class="nft_payment_cont">
+				<img src="./images/icon/pwd.png" alt="">
+				<span class="npc_title">비밀번호를 입력해주세요.</span>
+				<div class="device">
+					<div class="device-viewport">
+						<!-- Begin custom content -->
+						<div class="pin-display">
+							<div class="confirmation-dots">
+								<svg>
+								<circle class="pin-circle" cx="10" cy="10" r="5"></circle>
+								<circle class="pin-circle" cx="50" cy="10" r="5"></circle>
+								<circle class="pin-circle" cx="90" cy="10" r="5"></circle>
+								<circle class="pin-circle" cx="130" cy="10" r="5"></circle>
+								<circle class="pin-circle" cx="170" cy="10" r="5"></circle>
+								<circle class="pin-circle" cx="210" cy="10" r="5"></circle>
+								</svg>
+							</div>
+							<div class="keypad">
+								<div class="keypad--row">
+								<div class="keypad--button" data-value="1">1</div>
+								<div class="keypad--button" data-value="2">2</div>
+								<div class="keypad--button" data-value="3">3</div>
+								</div>
+								<div class="keypad--row">
+								<div class="keypad--button" data-value="4">4</div>
+								<div class="keypad--button" data-value="5">5</div>
+								<div class="keypad--button" data-value="6">6</div>
+								</div>
+								<div class="keypad--row">
+								<div class="keypad--button" data-value="7">7</div>
+								<div class="keypad--button" data-value="8">8</div>
+								<div class="keypad--button" data-value="9">9</div>
+								</div>
+								<div class="keypad--row">
+								<div class="keypad--button keyboard--button__back-arrow"><i class="material-icons">&larr;</i></div>
+								<div class="keypad--button" data-value="0">0</div>
+								<div class="keypad--button keyboard--button__x">x</div>
+								</div>
+							</div>
+						</div>
+						<!-- end custom content -->
+					</div>	
+				</div>
+			</div>
+			<div class="clear"></div>
+			
+		</div>
+		
+	</div>
+
+</div>
+
+<!-- 비밀번호 확인-->
+<script>
+	(function() {
+	const correctPin = "000000";
+	let disableInput = false;
+	_pinArray = [];
+
+	function reset() {
+		closeLock().then(() => {
+		disableInput = false;
+		_pinArray = [];
+		bindPinToDisplay(_pinArray);
+		});
+	}
+
+	function closeLock() {
+		const topSection = document.querySelector(".pin-info");
+		const bottomSection = document.querySelector(".pin-display");
+
+		const promises = [
+		anime({
+			targets: bottomSection,
+			translateY: "0%",
+			duration: 600,
+			easing: "easeOutCubic"
+		}).finished,
+		anime({
+			targets: topSection,
+			translateY: "0%",
+			duration: 600,
+			easing: "easeOutCubic"
+		}).finished
+		];
+
+		return Promise.all(promises);
+	}
+	function openLock() {
+		const topSection = document.querySelector(".pin-info");
+		const bottomSection = document.querySelector(".pin-display");
+
+		const promises = [
+		anime({
+			targets: bottomSection,
+			translateY: "125%",
+			duration: 600,
+			easing: "easeInCubic"
+		}).finished,
+		anime({
+			targets: topSection,
+			translateY: "-101%",
+			duration: 600,
+			easing: "easeInCubic"
+		}).finished
+		];
+
+		return Promise.all(promises);
+	}
+
+	function errorShake() {
+		return Promise.resolve();
+	}
+	function bindPinToDisplay(pinArray, pinStatus) {
+		document.querySelectorAll(".pin-circle").forEach((el, index) => {
+		if (pinStatus === "success") {
+			el.classList.add("success");
+		} else if (pinStatus === "error") {
+			el.classList.add("error");
+		} else if (index > pinArray.length - 1) {
+			el.classList.remove("entered");
+			el.classList.remove("success");
+			el.classList.remove("error");
+		} else {
+			el.classList.add("entered");
+		}
+		});
+
+		if (pinStatus === "error") {
+		document.querySelector(".confirmation-dots").classList.add("error");
+		} else {
+		document.querySelector(".confirmation-dots").classList.remove("error");
+		}
+	}
+
+	function evaluatePin(pinArray) {
+		const enteredPin = pinArray.join("");
+		if (enteredPin === correctPin) {
+		disableInput = true;
+		setTimeout(() => {
+			bindPinToDisplay(pinArray, "success");
+			setTimeout(() => {
+			openLock();
+			}, 500);
+		}, 250);
+		console.log("correct PIN");
+		} else {
+		disableInput = true;
+		setTimeout(() => {
+			bindPinToDisplay(pinArray, "error");
+			setTimeout(() => {
+			_pinArray = [];
+			bindPinToDisplay(_pinArray);
+			disableInput = false;
+			}, 350);
+		}, 250);
+		}
+	}
+
+	function initKeypad() {
+		document.querySelectorAll(".keypad--button[data-value]").forEach(el => {
+		el.addEventListener("click", evt => {
+			if (disableInput) {
+			return;
+			}
+			const value = evt.target.attributes["data-value"].value;
+			if (_pinArray.length < 6) {
+			_pinArray.push(value);
+			bindPinToDisplay(_pinArray);
+			if (_pinArray.length === 6) {
+				evaluatePin(_pinArray);
+			}
+			}
+		});
+		});
+
+		document
+		.querySelector(".keyboard--button__back-arrow")
+		.addEventListener("click", () => {
+			if (disableInput) {
+			return;
+			}
+			_pinArray.pop();
+			bindPinToDisplay(_pinArray);
+		});
+
+		document
+		.querySelector(".keyboard--button__x")
+		.addEventListener("click", () => {
+			if (disableInput) {
+			return;
+			}
+			_pinArray = [];
+			bindPinToDisplay(_pinArray);
+		});
+		
+		
+	}
+	
+	function init() {
+		initKeypad();
+
+	}
+	init();
+	})();
+
+</script>
+
+</body>
+</html>

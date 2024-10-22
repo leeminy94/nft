@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>::: 일상속의 NFT :::</title>
+
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style_noto.css">
+    <link rel="stylesheet" href="./css/elnft.css">
+    <link rel="stylesheet" type="text/css" href="./css/tab_menu.css"/>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <!-- Main Javascript -->
+    <script type="text/javascript" charset="utf-8" src="./js/swiper-3.2.7.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/jquery-2.1.4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <div id="popup01" style="top:50%;">
+        <div class="pop_txt">
+            NFT작품(500TTC)을 <br> 판매등록하시겠습니까?
+        </div>
+        <div class="pop_btns">
+            <button class="close">취소</button>
+            <button class="ok" id="ok">확인</button>
+        </div>
+    </div>
+</head>
+
+
+<!--### 전체 레이아웃 시작 : WRAP ###-->
+<body > 
+    <div class="wrap" >
+        <!--## 헤더 시작 : HEARER ##-->
+        <header id="htop">
+            <div class="htop_left">
+                <a href="index.html"><img src="./images/logo.png" alt=""></a>
+                <p>일상속의 NFT</p>
+            </div>
+            <div class="htop_right" id="dsrd_top">
+                <a href="search.html"><img src="./images/icon/icon_search_b.png" alt=""></a>
+                <button>NFT만들기</button>
+            </div>
+        </header>
+        <!--## 헤더 끝 : HEARER ##-->
+        
+        <!--## 컨텐츠 시작 : container ##-->
+
+            <!--메인 이미지-->
+            <div class="detail_sell_registrate_detail_conts">
+                <img src="./images/detail_main.png" alt="">
+            </div>
+            
+            <div class="dsrdc_list">
+                <ul>
+                    <li>
+                        <label for="">작품제목</label>
+                        <input type="text" value="콜라병 에디션" disabled>
+                    </li>
+                    
+                    <li>
+                        <label for="">작가</label>
+                        <input type="text" value="통통이" disabled>
+                    </li>
+                    <li>
+                        <label for="">지갑주소</label>
+                        <input type="text" value="TTC4R52uSjSSDJKALDSJFsvyvfC" disabled>
+                    </li>
+                    <li>
+                        <label for="">작품설명</label>
+                        <textarea name="" id="" cols="30" rows="10" disabled>작품설명입니다</textarea>
+                    </li>
+                   
+                    <li>
+                        <label for="">해시태그</label>
+                        <input type="text" placeholder="최대 5개까지 입력 가능합니다 (예:#사랑)" required >
+                    </li>
+                    <li>
+                        <label for="">카테고리</label>
+                        <select class="classic" name="" id="" autofocus required>
+                            <option value="" selected>선택</option>
+                            <option value="">음식</option>
+                            <option value="">여행</option>
+                            <option value="">문화</option>
+                            <option value="">경제</option>
+                            <option value="">연예</option>
+                            <option value="">노래</option>
+                            <option value="">기타</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="">판매금액</label>
+                        <div class="dsrd_list_txt">
+                            <div>
+                                <img src="./images/icon/ttc_icon.png" alt="">
+                                <p>TTC(통통코인)</p>
+                            </div>
+                            <p>(300원)</p>
+                        </div>
+                        <input type="text" placeholder="수량을 입력해주세요." required >
+                    </li>
+                    <li>
+                        <label for="">판매 기간설정</label>
+                        <div class="dsrd_list_date">
+                            <div>
+                                <label for="">시간날짜</label>
+                                <input id="currentDate" type="date" value="" required>
+                            </div>
+                            <div>
+                                <label for="">종료날짜</label>
+                                <input type="date" value=""  required>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="new">
+                            <form>
+                              <div class="form-group">
+                                <input type="checkbox" id="html" checked required>
+                                <label for="html" >NFT발행을 위한 정보 수집 및 이용에 동의합니다.</label>
+                              </div>
+                              <div class="form-group">
+                                <input type="checkbox" id="css" required>
+                                <label for="css">NFT발행시 유의사항을 확인하였으며, 하단 내용에 동의합니다.</label>
+                              </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <button class="openPopup">NFT 판매등록</button>
+                    </li>
+                </ul>
+            </div>
+        <!--## 컨텐츠 끝 : container ##-->
+    </div> 
+
+<!--오늘 날짜 input 적용-->
+
+<script language="javascript">
+    if(document.readyState=="loading"){
+    location.href='detail_sell_registrate_detail.html#dsrd_top';
+    }
+</script>
+<script>
+    document.getElementById('currentDate').value = new Date().toISOString().substring(0, 10);
+</script>
+
+<!--모달창 스크립트-->
+<script>
+    $(document).ready(function( $ ){     
+      $(".openPopup").on("click", function(event) {  //팝업오픈 버튼 누르면
+      $("#popup01").show();   //팝업 오픈
+      $("body").append('<div class="backon"></div>'); //뒷배경 생성
+      });
+      
+      $("body").on("click", function(event) { 
+          if(event.target.className == 'close' || event.target.className == 'backon'){
+              $("#popup01").hide(); //close버튼 이거나 뒷배경 클릭시 팝업 삭제
+                $(".backon").hide();
+          }
+        });
+
+        $("#ok").click(function(){
+            alert('판매등록되었습니다.');
+            location.href="detail_sell_registrate.html";
+        });
+    });  
+</script>
+<!--모달창 스크립트 끝 -->
+
+<script>
+    $(document).ready(function() {
+      $("#dbb_img").click(function() {
+          $("#dbb_img2").css("display", 'block');
+          $("#dbb_img").css("display", 'none');
+          $(".dbb_txt").text('11');
+      });
+      $("#dbb_img2").click(function() {
+          $("#dbb_img").css("display", 'block');
+          $("#dbb_img2").css("display", 'none');
+          $(".dbb_txt").text('10');
+      });
+  });
+</script>
+
+
+<!--메인 슬라이드 -->
+<script>
+    var slider1 = new Swiper ('.slider1', {
+            effect: 'slide',   
+            scrollbar: {
+            el: '.swiper-scrollbar',
+            },
+            speed : 300,
+            autoplay: true,
+            delay: 2000,
+        });
+    
+        /*해시태그 슬라이드*/
+        var slider2 = new Swiper(".slider2", {
+            slidesPerView: 'auto',      
+            navigation: {
+            nextEl: ".swiper-button-next"
+            },
+            spaceBetween: 3,
+        });
+        /*해시태그 슬라이드 끝*/
+    
+    
+        /*주목할만한 작품 슬라이드*/
+        var slider3 = new Swiper('.slider3', {
+            slidesPerView: 2,
+    /*         slidesPerColumn: 2, */
+            spaceBetween: 10,
+            observer: true,
+            observeParents: true,
+        });
+        /*주목할만한 작품 슬라이드 끝*/
+    
+        /*판매종료 임박 작품 슬라이드*/
+        var slider4 = new Swiper('.slider4', {
+            slidesPerView: 2,
+    /*         slidesPerColumn: 2, */
+            spaceBetween: 10,
+            observer: true,
+            observeParents: true,
+        });
+        /*판매종료 임박 작품 슬라이드 끝*/
+</script>
+</body>
+
+</html>
